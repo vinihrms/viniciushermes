@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EditorialCard from './EditorialCard.astro';
+import type { Locale } from '../i18n/ui';
+import { getItemUrl, getTranslations } from '../i18n/utils';
+import { getLocalizedBooks } from '../lib/content';
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const books = await getLocalizedBooks(locale);
+---
+
+<BaseLayout locale={locale} activeSection="books" title={t.books.title} description={t.books.lead}>
+	<div class="editorial-container">
+		<header class="page-header">
+			<span class="page-header__eyebrow">{t.books.eyebrow}</span>
+			<h1 class="page-header__title">{t.books.title}</h1>
+			<p class="page-header__lead">{t.books.lead}</p>
+		</header>
+
+		<div class="filter-bar" role="group" aria-label={t.books.title} data-filter-group="books">
+			<button type="button" class="filter-btn" aria-pressed="true" data-filter="all">
+				{t.books.allFilter}
+			</button>
+			<button type="button" class="filter-btn" aria-pressed="false" data-filter="lendo">
+				{t.books.statusReading}
+			</button>
+			<button type="button" class="filter-btn" aria-pressed="false" data-filter="lido">
+				{t.books.statusRead}
+			</button>
+		</div>
+
+		<div class="editorial-stack">
+			<div class="editorial-grid editorial-grid--vertical" data-filter-grid="books">
+				{
+					books.map(({ entry, slug }) => (
+						<EditorialCard
+							filterValue={entry.data.status}
+							card={{
+								href: getItemUrl(locale, 'books', slug),
+								image: entry.data.cover,
+								imageAlt: entry.data.coverAlt,
+								kicker:
+									entry.data.status === 'lendo'
+										? t.books.statusReading
+										: t.books.statusRead,
+								metaRight: String(entry.data.yearRead),
+								title: entry.data.title,
+								subtitle: entry.data.author,
+								mediaVariant: 'book',
+							}}
+						/>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</BaseLayout>
+
+<script>
+	const group = document.querySelector('[data-filter-group="books"]');
+	const grid = document.querySelector('[data-filter-grid="books"]');
+	if (group && grid) {
+		const buttons = group.querySelectorAll<HTMLButtonElement>('[data-filter]');
+		const items = grid.querySelectorAll<HTMLElement>('[data-filter-item]');
+		buttons.forEach((btn) => {
+			btn.addEventListener('click', () => {
+				const selected = btn.dataset.filter ?? 'all';
+				buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+				items.forEach((item) => {
+					const val = item.dataset.filterItem ?? '';
+					item.hidden = selected !== 'all' && val !== selected;
+				});
+			});
+		});
+	}
+</script>

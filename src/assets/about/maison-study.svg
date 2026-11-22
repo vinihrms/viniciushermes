@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+	<rect width="1200" height="800" fill="#F4F4F4" />
+	<rect x="64" y="64" width="1072" height="672" fill="none" stroke="#0A0A0A" stroke-width="1.2" />
+	<rect x="180" y="160" width="380" height="480" fill="#0A0A0A" />
+	<line x1="640" y1="220" x2="1020" y2="220" stroke="#0A0A0A" stroke-width="1.2" />
+	<line x1="640" y1="300" x2="960" y2="300" stroke="#A3A3A3" stroke-width="1" />
+	<line x1="640" y1="340" x2="920" y2="340" stroke="#A3A3A3" stroke-width="1" />
+	<line x1="640" y1="380" x2="980" y2="380" stroke="#A3A3A3" stroke-width="1" />
+	<text x="640" y="610" fill="#0A0A0A" font-family="monospace" font-size="16" letter-spacing="5">PLATE 01 · SYSTEMS &amp; STRUCTURE</text>
+</svg>

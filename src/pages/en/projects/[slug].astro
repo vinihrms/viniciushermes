@@ -1,0 +1,16 @@
+---
+import ProjectDetail from '../../../components/ProjectDetail.astro';
+import { getLocalizedProjects } from '../../../lib/content';
+
+export async function getStaticPaths() {
+	const items = await getLocalizedProjects('en');
+	return items.map(({ slug, entry, isFallback }) => ({
+		params: { slug },
+		props: { entry, isFallback },
+	}));
+}
+
+const { entry, isFallback } = Astro.props;
+---
+
+<ProjectDetail locale="en" entry={entry} isFallback={isFallback} />

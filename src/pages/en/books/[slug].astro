@@ -1,0 +1,16 @@
+---
+import BookDetail from '../../../components/BookDetail.astro';
+import { getLocalizedBooks } from '../../../lib/content';
+
+export async function getStaticPaths() {
+	const items = await getLocalizedBooks('en');
+	return items.map(({ slug, entry, isFallback }) => ({
+		params: { slug },
+		props: { entry, isFallback },
+	}));
+}
+
+const { entry, isFallback } = Astro.props;
+---
+
+<BookDetail locale="en" entry={entry} isFallback={isFallback} />

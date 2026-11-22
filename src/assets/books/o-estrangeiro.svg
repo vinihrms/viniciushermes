@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200">
+	<rect width="800" height="1200" fill="#F3F2EE" />
+	<rect x="52" y="52" width="696" height="1096" fill="none" stroke="#0A0A0A" stroke-width="1.5" />
+	<circle cx="400" cy="480" r="150" fill="#0A0A0A" />
+	<line x1="120" y1="840" x2="680" y2="840" stroke="#0A0A0A" stroke-width="1" />
+	<text x="400" y="160" text-anchor="middle" fill="#666666" font-family="monospace" font-size="18" letter-spacing="6">ALBERT CAMUS</text>
+	<text x="400" y="930" text-anchor="middle" fill="#0A0A0A" font-family="Georgia, serif" font-size="52" letter-spacing="4">O ESTRANGEIRO</text>
+	<text x="400" y="1060" text-anchor="middle" fill="#666666" font-family="monospace" font-size="14" letter-spacing="5">BOOK COVER PLACEHOLDER</text>
+</svg>

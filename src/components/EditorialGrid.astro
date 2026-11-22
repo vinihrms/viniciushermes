@@ -1,0 +1,36 @@
+---
+interface Props {
+	layout: 'horizontal-2' | 'vertical-3' | 'hero';
+	label?: string;
+	moreHref?: string;
+	moreLabel?: string;
+	tight?: boolean;
+}
+
+const { layout, label, moreHref, moreLabel, tight = false } = Astro.props;
+
+const gridModifier =
+	layout === 'hero'
+		? 'editorial-grid--hero'
+		: layout === 'vertical-3'
+			? 'editorial-grid--vertical'
+			: 'editorial-grid--horizontal';
+---
+
+<section class="editorial-band">
+	{
+		(label || moreHref) && (
+			<div class="section-bar">
+				{label && <h2 class="section-bar__title">{label}</h2>}
+				{moreHref && moreLabel && (
+					<a href={moreHref} class="section-bar__link">
+						{moreLabel} →
+					</a>
+				)}
+			</div>
+		)
+	}
+	<div class:list={['editorial-grid', gridModifier, { 'editorial-grid--tight': tight }]}>
+		<slot />
+	</div>
+</section>

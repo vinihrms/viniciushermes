@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EditorialCard from './EditorialCard.astro';
+import type { Locale } from '../i18n/ui';
+import { formatEditorialDate, getItemUrl, getTranslations } from '../i18n/utils';
+import { getLocalizedPosts } from '../lib/content';
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const posts = await getLocalizedPosts(locale);
+
+const categories = Array.from(new Set(posts.map((p) => p.entry.data.category)));
+---
+
+<BaseLayout locale={locale} activeSection="posts" title={t.posts.title} description={t.posts.lead}>
+	<div class="editorial-container">
+		<header class="page-header">
+			<span class="page-header__eyebrow">{t.posts.eyebrow}</span>
+			<h1 class="page-header__title">{t.posts.title}</h1>
+			<p class="page-header__lead">{t.posts.lead}</p>
+		</header>
+
+		{
+			categories.length > 1 && (
+				<div class="filter-bar" role="group" aria-label={t.posts.title} data-filter-group="posts">
+					<button type="button" class="filter-btn" aria-pressed="true" data-filter="all">
+						{t.posts.allFilter}
+					</button>
+					{categories.map((cat) => (
+						<button type="button" class="filter-btn" aria-pressed="false" data-filter={cat}>
+							{cat}
+						</button>
+					))}
+				</div>
+			)
+		}
+
+		<div class="editorial-stack">
+			<div class="editorial-grid editorial-grid--horizontal" data-filter-grid="posts">
+				{
+					posts.map(({ entry, slug }) => (
+						<EditorialCard
+							filterValue={entry.data.category}
+							card={{
+								href: getItemUrl(locale, 'posts', slug),
+								image: entry.data.cover,
+								imageAlt: entry.data.coverAlt,
+								kicker: entry.data.category,
+								metaRight: formatEditorialDate(entry.data.date, locale),
+								title: entry.data.title,
+								subtitle: entry.data.excerpt,
+								mediaVariant: 'horizontal',
+							}}
+						/>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</BaseLayout>
+
+<script>
+	const group = document.querySelector('[data-filter-group="posts"]');
+	const grid = document.querySelector('[data-filter-grid="posts"]');
+	if (group && grid) {
+		const buttons = group.querySelectorAll<HTMLButtonElement>('[data-filter]');
+		const items = grid.querySelectorAll<HTMLElement>('[data-filter-item]');
+		buttons.forEach((btn) => {
+			btn.addEventListener('click', () => {
+				const selected = btn.dataset.filter ?? 'all';
+				buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+				items.forEach((item) => {
+					const val = item.dataset.filterItem ?? '';
+					item.hidden = selected !== 'all' && val !== selected;
+				});
+			});
+		});
+	}
+</script>

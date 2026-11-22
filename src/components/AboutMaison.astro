@@ -1,0 +1,330 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../data/site';
+import type { Locale } from '../i18n/ui';
+import { getTranslations } from '../i18n/utils';
+
+import heroPlate from '../assets/about/maison-hero.svg';
+import diptychLeft from '../assets/about/maison-study.svg';
+import diptychRight from '../assets/about/maison-archive.svg';
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const about = t.about;
+---
+
+<BaseLayout
+	locale={locale}
+	activeSection="about"
+	title={t.nav.about}
+	description={about.manifesto}
+>
+	<article class="maison">
+		<div class="editorial-container">
+			<header class="maison-hero">
+				<span class="page-header__eyebrow">{about.eyebrow}</span>
+				<h1 class="maison-hero__title">{about.title}</h1>
+				<p class="maison-hero__manifesto">{about.manifesto}</p>
+			</header>
+
+			<figure class="maison-plate">
+				<Image
+					src={heroPlate}
+					alt={about.title}
+					widths={[640, 1024, 1440]}
+					sizes="100vw"
+				/>
+			</figure>
+
+			<section class="maison-chapter">
+				<div class="maison-chapter__label">
+					<span class="maison-chapter__num">{about.chapters[0].number}</span>
+					<h2 class="maison-chapter__heading">{about.chapters[0].heading}</h2>
+				</div>
+				<div class="maison-chapter__body">
+					{about.chapters[0].paragraphs.map((p) => <p>{p}</p>)}
+				</div>
+			</section>
+
+			<div class="editorial-grid editorial-grid--horizontal maison-diptych">
+				<figure class="maison-frame">
+					<div class="editorial-card__media editorial-card__media--horizontal">
+						<Image
+							src={diptychLeft}
+							alt={about.chapters[0].heading}
+							widths={[480, 760, 1080]}
+							sizes="(max-width: 639px) 100vw, 50vw"
+						/>
+					</div>
+				</figure>
+				<figure class="maison-frame">
+					<div class="editorial-card__media editorial-card__media--horizontal">
+						<Image
+							src={diptychRight}
+							alt={about.chapters[1].heading}
+							widths={[480, 760, 1080]}
+							sizes="(max-width: 639px) 100vw, 50vw"
+						/>
+					</div>
+				</figure>
+			</div>
+
+			<section class="maison-chapter">
+				<div class="maison-chapter__label">
+					<span class="maison-chapter__num">{about.chapters[1].number}</span>
+					<h2 class="maison-chapter__heading">{about.chapters[1].heading}</h2>
+				</div>
+				<div class="maison-chapter__body">
+					{about.chapters[1].paragraphs.map((p) => <p>{p}</p>)}
+				</div>
+			</section>
+
+			<section class="maison-timeline">
+				<div class="section-bar">
+					<h2 class="section-bar__title">{about.timelineTitle}</h2>
+				</div>
+				<ol class="timeline-list">
+					{
+						about.timeline.map((item) => (
+							<li class="timeline-item">
+								<span class="timeline-item__period">{item.period}</span>
+								<div class="timeline-item__content">
+									<h3 class="timeline-item__title">{item.title}</h3>
+									<p class="timeline-item__detail">{item.detail}</p>
+								</div>
+							</li>
+						))
+					}
+				</ol>
+			</section>
+
+			<section class="maison-colophon">
+				<div class="maison-colophon__col">
+					<span class="section-bar__title">{about.colophonTitle}</span>
+					<p class="maison-colophon__text">{about.colophonText}</p>
+				</div>
+				<div class="maison-colophon__col">
+					<span class="section-bar__title">{about.contactLabel}</span>
+					<ul class="maison-contact-list">
+						<li>
+							<a href={siteConfig.links.email}>{siteConfig.email} ↗</a>
+						</li>
+						<li>
+							<a href={siteConfig.links.github} target="_blank" rel="noreferrer">
+								GitHub ↗
+							</a>
+						</li>
+						<li>
+							<a href={siteConfig.links.linkedin} target="_blank" rel="noreferrer">
+								LinkedIn ↗
+							</a>
+						</li>
+					</ul>
+				</div>
+			</section>
+		</div>
+	</article>
+</BaseLayout>
+
+<style>
+	.maison {
+		padding-bottom: clamp(64px, 8vw, 112px);
+	}
+
+	.maison-hero {
+		padding-block: clamp(44px, 7vw, 96px) clamp(32px, 5vw, 56px);
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 18px;
+	}
+
+	.maison-hero__title {
+		margin: 0;
+		font-family: var(--font-serif);
+		font-weight: 400;
+		font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+		line-height: 0.98;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+	}
+
+	.maison-hero__manifesto {
+		margin: 0;
+		max-width: 52ch;
+		font-family: var(--font-serif);
+		font-style: italic;
+		font-size: clamp(1.25rem, 2vw, 1.65rem);
+		line-height: 1.45;
+		color: var(--color-ink-secondary);
+	}
+
+	.maison-plate {
+		margin: 0 0 clamp(48px, 7vw, 88px);
+		aspect-ratio: 21 / 9;
+		overflow: hidden;
+		background-color: var(--color-surface);
+	}
+
+	.maison-plate img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.maison-chapter {
+		display: grid;
+		grid-template-columns: minmax(200px, 340px) minmax(0, 1fr);
+		gap: clamp(20px, 4vw, 64px);
+		padding-block: clamp(32px, 5vw, 56px);
+		border-top: 1px solid var(--color-border);
+	}
+
+	.maison-chapter__label {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.maison-chapter__num {
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		letter-spacing: 0.16em;
+		color: var(--color-muted);
+	}
+
+	.maison-chapter__heading {
+		margin: 0;
+		font-family: var(--font-serif);
+		font-weight: 400;
+		font-size: clamp(1.75rem, 2.8vw, 2.4rem);
+		line-height: 1.1;
+	}
+
+	.maison-chapter__body {
+		max-width: 60ch;
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		font-size: var(--text-md);
+		line-height: 1.8;
+		color: var(--color-ink-secondary);
+	}
+
+	.maison-chapter__body p {
+		margin: 0;
+	}
+
+	.maison-diptych {
+		margin-block: clamp(16px, 3vw, 32px) clamp(40px, 6vw, 68px);
+	}
+
+	.maison-frame {
+		margin: 0;
+	}
+
+	.maison-timeline {
+		margin-top: clamp(32px, 5vw, 64px);
+	}
+
+	.timeline-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.timeline-item {
+		display: grid;
+		grid-template-columns: minmax(120px, 220px) minmax(0, 1fr);
+		gap: 12px 32px;
+		padding-block: 22px;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.timeline-item__period {
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--color-muted);
+		padding-top: 6px;
+	}
+
+	.timeline-item__title {
+		margin: 0;
+		font-family: var(--font-serif);
+		font-weight: 400;
+		font-size: 1.45rem;
+		line-height: 1.2;
+	}
+
+	.timeline-item__detail {
+		margin: 6px 0 0;
+		max-width: 62ch;
+		font-size: var(--text-sm);
+		color: var(--color-ink-secondary);
+		line-height: 1.65;
+	}
+
+	.maison-colophon {
+		margin-top: clamp(48px, 6vw, 80px);
+		padding-top: 32px;
+		border-top: 1px solid var(--color-ink);
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 32px 64px;
+	}
+
+	.maison-colophon__col {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+	.maison-colophon__text {
+		margin: 0;
+		max-width: 48ch;
+		font-size: var(--text-sm);
+		line-height: 1.7;
+		color: var(--color-ink-secondary);
+	}
+
+	.maison-contact-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+	}
+
+	.maison-contact-list a {
+		transition: opacity var(--duration-fast) var(--ease-editorial);
+	}
+
+	.maison-contact-list a:hover {
+		opacity: 0.55;
+	}
+
+	@media (max-width: 767px) {
+		.maison-plate {
+			aspect-ratio: 4 / 3;
+		}
+
+		.maison-chapter,
+		.timeline-item,
+		.maison-colophon {
+			grid-template-columns: minmax(0, 1fr);
+		}
+	}
+</style>

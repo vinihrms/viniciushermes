@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EditorialGrid from './EditorialGrid.astro';
+import EditorialCard from './EditorialCard.astro';
+import type { Locale } from '../i18n/ui';
+import { getTranslations } from '../i18n/utils';
+import { resolveHomeSections } from '../lib/content';
+
+interface Props {
+	locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const sections = await resolveHomeSections(locale);
+---
+
+<BaseLayout locale={locale} activeSection="home">
+	<div class="editorial-container home-wrapper">
+		<div class="home-masthead">
+			<span class="home-masthead__eyebrow">{t.home.eyebrow}</span>
+			<span class="home-masthead__tagline">{t.siteTagline}</span>
+		</div>
+
+		<div class="editorial-stack">
+			{
+				sections.map((section) => (
+					<EditorialGrid
+						layout={section.layout}
+						label={section.label}
+						moreHref={section.moreHref}
+						moreLabel={t.home.viewAll}
+					>
+						{section.cards.map((card) => (
+							<EditorialCard card={card} />
+						))}
+					</EditorialGrid>
+				))
+			}
+		</div>
+	</div>
+</BaseLayout>
+
+<style>
+	.home-wrapper {
+		padding-top: clamp(16px, 2vw, 24px);
+	}
+
+	.home-masthead {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 8px 24px;
+		padding-bottom: 14px;
+		margin-bottom: clamp(24px, 3vw, 40px);
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.home-masthead__eyebrow {
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: var(--color-muted);
+	}
+
+	.home-masthead__tagline {
+		font-family: var(--font-serif);
+		font-style: italic;
+		font-size: 1.05rem;
+		color: var(--color-ink-secondary);
+	}
+</style>

@@ -1,0 +1,39 @@
+---
+import { render } from 'astro:content';
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import type { Locale } from '../i18n/ui';
+import {
+	estimateReadingTime,
+	formatEditorialDate,
+	getSectionUrl,
+	getTranslations,
+} from '../i18n/utils';
+import type { PostEntry } from '../lib/content';
+
+interface Props {
+	locale: Locale;
+	entry: PostEntry;
+	isFallback?: boolean;
+}
+
+const { locale, entry, isFallback = false } = Astro.props;
+const t = getTranslations(locale);
+const { Content } = await render(entry);
+const minutes = estimateReadingTime(entry.body);
+---
+
+<ArticleLayout
+	locale={locale}
+	activeSection="posts"
+	backHref={getSectionUrl(locale, 'posts')}
+	backLabel={t.posts.backToList}
+	eyebrow={`${entry.data.category} · ${formatEditorialDate(entry.data.date, locale)} · ${minutes} ${t.posts.readingTime}`}
+	title={entry.data.title}
+	lead={entry.data.excerpt}
+	cover={entry.data.cover}
+	coverAlt={entry.data.coverAlt}
+	tags={entry.data.tags}
+	isFallback={isFallback}
+>
+	<Content />
+</ArticleLayout>

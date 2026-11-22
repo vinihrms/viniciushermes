@@ -1,0 +1,258 @@
+export type Locale = 'pt-br' | 'en';
+
+export const DEFAULT_LOCALE: Locale = 'pt-br';
+
+export const ui = {
+	'pt-br': {
+		siteTitle: 'Vinícius Hermes',
+		siteTagline: 'Leituras, projetos e fotografia.',
+		nav: {
+			home: 'Início',
+			posts: 'Postagens',
+			books: 'Livros',
+			projects: 'Projetos',
+			gallery: 'Galeria',
+			about: 'Sobre',
+		},
+		home: {
+			metaTitle: 'Vinícius Hermes — Arquivo Editorial',
+			eyebrow: 'Edição Contínua · Portfólio & Arquivo',
+			viewAll: 'Ver tudo',
+			sectionLabels: {
+				featured: 'Em Destaque',
+				readings: 'Leituras & Resenhas',
+				projects: 'Projetos Selecionados',
+				gallery: 'Caderno Visual',
+				notes: 'Postagens Recentes',
+			},
+		},
+		posts: {
+			eyebrow: 'Arquivo · Texto',
+			title: 'Postagens',
+			lead: 'Ensaios curtos, anotações, livros e criatividade.',
+			allFilter: 'Todas',
+			backToList: 'Voltar para Postagens',
+			readingTime: 'min de leitura',
+			empty: 'Nenhuma postagem encontrada nesta categoria.',
+		},
+		books: {
+			eyebrow: 'Biblioteca · Resenhas',
+			title: 'Livros',
+			lead: 'Obras lidas e em andamento — acompanhadas de resenhas, anotações de margem e passagens selecionadas.',
+			allFilter: 'Todos',
+			statusRead: 'Lido',
+			statusReading: 'Lendo',
+			backToList: 'Voltar para Livros',
+			author: 'Autor',
+			yearRead: 'Leitura',
+			status: 'Status',
+			rating: 'Nota',
+		},
+		projects: {
+			eyebrow: 'Ciência da Computação · Engenharia',
+			title: 'Projetos',
+			lead: 'Sistemas, ferramentas, experimentos acadêmicos e projetos pessoais desenvolvidos ao longo da graduação em Ciência da Computação.',
+			allFilter: 'Todos',
+			backToList: 'Voltar para Projetos',
+			stack: 'Tecnologias',
+			year: 'Ano',
+			repository: 'Repositório',
+			liveDemo: 'Demonstração',
+			links: 'Links',
+		},
+		gallery: {
+			eyebrow: 'Fotografia · Lookbook',
+			title: 'Galeria',
+			lead: 'Registros fotográficos autorais. Clique em qualquer quadro para ampliar.',
+			allFilter: 'Todas',
+			horizontalFilter: 'Horizontais',
+			verticalFilter: 'Verticais',
+			close: 'Fechar',
+			previous: 'Anterior',
+			next: 'Próxima',
+		},
+		about: {
+			eyebrow: 'Sobre a Casa',
+			title: 'Vinícius Hermes',
+			manifesto:
+				'Estudante de Ciência da Computação construindo um arquivo vivo entre rigor técnico, literatura e estética editorial.',
+			chapters: [
+				{
+					number: '01',
+					heading: 'A Prática',
+					paragraphs: [
+						'Este espaço funciona simultaneamente como portfólio de engenharia, caderno de estudos e publicação independente. Cada projeto, resenha ou fotografia é arquivado como parte de uma mesma edição contínua.',
+						'Na Ciência da Computação, interesso-me especialmente por fundamentos de sistemas, arquitetura de software, algoritmos e interfaces silenciosas — onde clareza estrutural importa tanto quanto a experiência visual.',
+					],
+				},
+				{
+					number: '02',
+					heading: 'Leituras & Olhar',
+					paragraphs: [
+						'Fora do código, a biblioteca e a câmera moldam a forma como penso composição, ritmo e precisão. Registrar livros lidos e fotografias editadas no mesmo lugar é uma maneira de preservar referências sem pressa.',
+						'A escolha pelo preto e branco absoluto — inspirado por publicações editoriais e casas de moda — remove o ruído para que o texto, o código e cada imagem ocupem o centro da página.',
+					],
+				},
+			],
+			timelineTitle: 'Trajetória',
+			timeline: [
+				{
+					period: 'Atual',
+					title: 'Graduação em Ciência da Computação',
+					detail: 'Estudos em algoritmos, estruturas de dados, sistemas operacionais, compiladores e engenharia de software.',
+				},
+				{
+					period: 'Contínuo',
+					title: 'Projetos Pessoais & Open Source',
+					detail: 'Construção de ferramentas de linha de comando, aplicações web minimalistas e experimentos de sistemas.',
+				},
+				{
+					period: 'Arquivo',
+					title: 'Biblioteca & Caderno Fotográfico',
+					detail: 'Curadoria pessoal de literatura, não-ficção técnica e ensaios fotográficos.',
+				},
+			],
+			colophonTitle: 'Colofon & Contato',
+			colophonText:
+				'Composto em Cormorant Garamond, Inter e IBM Plex Mono. Desenvolvido em Astro como publicação estática rápida, bilíngue e versionada em Markdown.',
+			contactLabel: 'Contato & Perfis',
+		},
+		footer: {
+			rights: 'Vinícius Hermes',
+			note: 'Arquivo Editorial · Ciência da Computação',
+		},
+		collectionBadges: {
+			posts: 'Postagem',
+			books: 'Livro',
+			projects: 'Projeto',
+			gallery: 'Galeria',
+		},
+		fallbackNotice: 'Este conteúdo ainda está disponível apenas em Português.',
+	},
+	en: {
+		siteTitle: 'Vinícius Hermes',
+		siteTagline: 'Computer Science, readings, projects and photography.',
+		nav: {
+			home: 'Home',
+			posts: 'Posts',
+			books: 'Books',
+			projects: 'Projects',
+			gallery: 'Gallery',
+			about: 'About',
+		},
+		home: {
+			metaTitle: 'Vinícius Hermes — Editorial Archive',
+			eyebrow: 'Ongoing Edition · Portfolio & Archive',
+			viewAll: 'View all',
+			sectionLabels: {
+				featured: 'Featured',
+				readings: 'Readings & Reviews',
+				projects: 'Selected Projects',
+				gallery: 'Visual Notebook',
+				notes: 'Recent Posts',
+			},
+		},
+		posts: {
+			eyebrow: 'Archive · Writing',
+			title: 'Posts',
+			lead: 'Short essays, Computer Science technical notes, and reflections on software, books, and craft.',
+			allFilter: 'All',
+			backToList: 'Back to Posts',
+			readingTime: 'min read',
+			empty: 'No posts found in this category.',
+		},
+		books: {
+			eyebrow: 'Library · Reviews',
+			title: 'Books',
+			lead: 'Books read and currently on the desk — paired with reviews, margin notes, and selected passages.',
+			allFilter: 'All',
+			statusRead: 'Read',
+			statusReading: 'Reading',
+			backToList: 'Back to Books',
+			author: 'Author',
+			yearRead: 'Read in',
+			status: 'Status',
+			rating: 'Rating',
+		},
+		projects: {
+			eyebrow: 'Computer Science · Engineering',
+			title: 'Projects',
+			lead: 'Systems, tools, academic experiments, and personal software built throughout my Computer Science studies.',
+			allFilter: 'All',
+			backToList: 'Back to Projects',
+			stack: 'Stack',
+			year: 'Year',
+			repository: 'Repository',
+			liveDemo: 'Live Demo',
+			links: 'Links',
+		},
+		gallery: {
+			eyebrow: 'Photography · Lookbook',
+			title: 'Gallery',
+			lead: 'Photographic frames arranged in horizontal and vertical bands. Select any frame to inspect.',
+			allFilter: 'All',
+			horizontalFilter: 'Horizontal',
+			verticalFilter: 'Vertical',
+			close: 'Close',
+			previous: 'Previous',
+			next: 'Next',
+		},
+		about: {
+			eyebrow: 'About the House',
+			title: 'Vinícius Hermes',
+			manifesto:
+				'Computer Science student curating a living archive at the intersection of technical rigor, literature, and editorial design.',
+			chapters: [
+				{
+					number: '01',
+					heading: 'The Practice',
+					paragraphs: [
+						'This site operates simultaneously as an engineering portfolio, study notebook, and independent publication. Every project, book review, and photograph is filed as part of one ongoing edition.',
+						'In Computer Science, I focus on systems fundamentals, software architecture, algorithms, and quiet interfaces — where structural clarity matters as much as visual restraint.',
+					],
+				},
+				{
+					number: '02',
+					heading: 'Reading & Vision',
+					paragraphs: [
+						'Away from code, books and photography shape how I think about composition, pacing, and precision. Keeping readings and edited photographs under the same roof preserves references without haste.',
+						'The strict black-and-white palette — inspired by editorial monographs and fashion houses — strips away noise so text, code, and photography hold the page.',
+					],
+				},
+			],
+			timelineTitle: 'Chronology',
+			timeline: [
+				{
+					period: 'Present',
+					title: 'B.Sc. in Computer Science',
+					detail: 'Coursework and research in algorithms, data structures, operating systems, compilers, and software engineering.',
+				},
+				{
+					period: 'Ongoing',
+					title: 'Personal Projects & Open Source',
+					detail: 'Building command-line tools, minimalist web applications, and systems experiments.',
+				},
+				{
+					period: 'Archive',
+					title: 'Library & Photographic Notebook',
+					detail: 'Personal curation of literature, technical non-fiction, and photographic studies.',
+				},
+			],
+			colophonTitle: 'Colophon & Contact',
+			colophonText:
+				'Set in Cormorant Garamond, Inter, and IBM Plex Mono. Built with Astro as a fast, bilingual static publication powered by Markdown.',
+			contactLabel: 'Contact & Profiles',
+		},
+		footer: {
+			rights: 'Vinícius Hermes',
+			note: 'Editorial Archive · Computer Science',
+		},
+		collectionBadges: {
+			posts: 'Post',
+			books: 'Book',
+			projects: 'Project',
+			gallery: 'Gallery',
+		},
+		fallbackNotice: 'This entry is currently available in Portuguese only.',
+	},
+} as const;

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
+	<rect width="900" height="1200" fill="#F0F0F0" />
+	<g fill="#0A0A0A">
+		<rect x="120" y="220" width="660" height="24" />
+		<rect x="160" y="320" width="620" height="24" />
+		<rect x="200" y="420" width="580" height="24" />
+		<rect x="240" y="520" width="540" height="24" />
+		<rect x="280" y="620" width="500" height="24" />
+		<rect x="320" y="720" width="460" height="24" />
+		<rect x="360" y="820" width="420" height="24" />
+		<rect x="400" y="920" width="380" height="24" />
+	</g>
+	<text x="450" y="1130" text-anchor="middle" fill="#525252" font-family="monospace" font-size="15" letter-spacing="5">FRAME V02 · CONCRETE STAIRS</text>
+</svg>

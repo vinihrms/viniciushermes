@@ -1,0 +1,44 @@
+---
+import { render } from 'astro:content';
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import type { Locale } from '../i18n/ui';
+import { getSectionUrl, getTranslations } from '../i18n/utils';
+import type { ProjectEntry } from '../lib/content';
+
+interface Props {
+	locale: Locale;
+	entry: ProjectEntry;
+	isFallback?: boolean;
+}
+
+const { locale, entry, isFallback = false } = Astro.props;
+const t = getTranslations(locale);
+const { Content } = await render(entry);
+
+const meta = [
+	{ label: t.projects.year, value: String(entry.data.year) },
+	...(entry.data.repoUrl
+		? [{ label: t.projects.repository, value: 'GitHub', href: entry.data.repoUrl }]
+		: []),
+	...(entry.data.demoUrl
+		? [{ label: t.projects.liveDemo, value: 'Online', href: entry.data.demoUrl }]
+		: []),
+];
+---
+
+<ArticleLayout
+	locale={locale}
+	activeSection="projects"
+	backHref={getSectionUrl(locale, 'projects')}
+	backLabel={t.projects.backToList}
+	eyebrow={`${t.projects.eyebrow} · ${entry.data.category}`}
+	title={entry.data.title}
+	lead={entry.data.excerpt}
+	cover={entry.data.cover}
+	coverAlt={entry.data.coverAlt}
+	meta={meta}
+	tags={entry.data.stack}
+	isFallback={isFallback}
+>
+	<Content />
+</ArticleLayout>

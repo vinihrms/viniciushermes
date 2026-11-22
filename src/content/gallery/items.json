@@ -1,0 +1,57 @@
+[
+	{
+		"id": "horizonte-01",
+		"image": "../../assets/gallery/horiz-01.svg",
+		"orientation": "horizontal",
+		"titlePt": "Estudo de Horizonte I",
+		"titleEn": "Horizon Study I",
+		"locationPt": "Arquivo Pessoal",
+		"locationEn": "Personal Archive",
+		"date": "2026",
+		"camera": "35mm · Placeholder"
+	},
+	{
+		"id": "fachada-pavilhao",
+		"image": "../../assets/gallery/horiz-02.svg",
+		"orientation": "horizontal",
+		"titlePt": "Fachada do Pavilhão",
+		"titleEn": "Pavilion Facade",
+		"locationPt": "Arquivo Pessoal",
+		"locationEn": "Personal Archive",
+		"date": "2026",
+		"camera": "50mm · Placeholder"
+	},
+	{
+		"id": "retrato-arquitetura-01",
+		"image": "../../assets/gallery/vert-01.svg",
+		"orientation": "vertical",
+		"titlePt": "Monólito & Sombra",
+		"titleEn": "Monolith & Shadow",
+		"locationPt": "Série Arquitetura",
+		"locationEn": "Architecture Series",
+		"date": "2026",
+		"camera": "50mm · Placeholder"
+	},
+	{
+		"id": "escadaria-concreto",
+		"image": "../../assets/gallery/vert-02.svg",
+		"orientation": "vertical",
+		"titlePt": "Escadaria de Concreto",
+		"titleEn": "Concrete Staircase",
+		"locationPt": "Série Arquitetura",
+		"locationEn": "Architecture Series",
+		"date": "2026",
+		"camera": "35mm · Placeholder"
+	},
+	{
+		"id": "sombra-biblioteca",
+		"image": "../../assets/gallery/vert-03.svg",
+		"orientation": "vertical",
+		"titlePt": "Fresta de Luz",
+		"titleEn": "Slit of Light",
+		"locationPt": "Biblioteca",
+		"locationEn": "Library",
+		"date": "2026",
+		"camera": "28mm · Placeholder"
+	}
+]

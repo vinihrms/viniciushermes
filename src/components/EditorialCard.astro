@@ -1,0 +1,57 @@
+---
+import { Image } from 'astro:assets';
+import type { EditorialCardData } from '../lib/content';
+
+interface Props {
+	card: EditorialCardData;
+	filterValue?: string;
+}
+
+const { card, filterValue } = Astro.props;
+const widths =
+	card.mediaVariant === 'hero'
+		? [640, 1024, 1440]
+		: card.mediaVariant === 'horizontal'
+			? [480, 760, 1080]
+			: [360, 560, 800];
+const sizes =
+	card.mediaVariant === 'hero'
+		? '100vw'
+		: card.mediaVariant === 'horizontal'
+			? '(max-width: 639px) 100vw, 50vw'
+			: '(max-width: 639px) 50vw, (max-width: 1023px) 50vw, 33vw';
+---
+
+<article class="editorial-card" data-filter-item={filterValue}>
+	<a href={card.href} class="editorial-card__link">
+		<div class:list={['editorial-card__media', `editorial-card__media--${card.mediaVariant}`]}>
+			<Image
+				src={card.image}
+				alt={card.imageAlt}
+				widths={widths}
+				sizes={sizes}
+				loading="lazy"
+				decoding="async"
+			/>
+		</div>
+		<div class="editorial-card__body">
+			<div class="editorial-card__meta">
+				<span>{card.kicker}</span>
+				{card.metaRight && <span>{card.metaRight}</span>}
+			</div>
+			<h3 class="editorial-card__title">
+				<span class="editorial-card__title-text">{card.title}</span>
+			</h3>
+			{card.subtitle && <p class="editorial-card__subtitle">{card.subtitle}</p>}
+			{
+				card.tags && card.tags.length > 0 && (
+					<div class="editorial-card__tags">
+						{card.tags.map((tag) => (
+							<span>{tag}</span>
+						))}
+					</div>
+				)
+			}
+		</div>
+	</a>
+</article>

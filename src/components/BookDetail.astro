@@ -1,0 +1,45 @@
+---
+import { render } from 'astro:content';
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+import type { Locale } from '../i18n/ui';
+import { getSectionUrl, getTranslations } from '../i18n/utils';
+import type { BookEntry } from '../lib/content';
+
+interface Props {
+	locale: Locale;
+	entry: BookEntry;
+	isFallback?: boolean;
+}
+
+const { locale, entry, isFallback = false } = Astro.props;
+const t = getTranslations(locale);
+const { Content } = await render(entry);
+
+const statusLabel =
+	entry.data.status === 'lendo' ? t.books.statusReading : t.books.statusRead;
+
+const meta = [
+	{ label: t.books.author, value: entry.data.author },
+	{ label: t.books.yearRead, value: String(entry.data.yearRead) },
+	{ label: t.books.status, value: statusLabel },
+	...(entry.data.rating ? [{ label: t.books.rating, value: entry.data.rating }] : []),
+];
+---
+
+<ArticleLayout
+	locale={locale}
+	activeSection="books"
+	backHref={getSectionUrl(locale, 'books')}
+	backLabel={t.books.backToList}
+	eyebrow={`${t.books.eyebrow} · ${statusLabel}`}
+	title={entry.data.title}
+	lead={entry.data.excerpt}
+	cover={entry.data.cover}
+	coverAlt={entry.data.coverAlt}
+	coverVariant="book"
+	meta={meta}
+	quote={entry.data.quote}
+	isFallback={isFallback}
+>
+	<Content />
+</ArticleLayout>

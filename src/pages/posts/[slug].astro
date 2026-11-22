@@ -1,0 +1,16 @@
+---
+import PostDetail from '../../components/PostDetail.astro';
+import { getLocalizedPosts } from '../../lib/content';
+
+export async function getStaticPaths() {
+	const items = await getLocalizedPosts('pt-br');
+	return items.map(({ slug, entry, isFallback }) => ({
+		params: { slug },
+		props: { entry, isFallback },
+	}));
+}
+
+const { entry, isFallback } = Astro.props;
+---
+
+<PostDetail locale="pt-br" entry={entry} isFallback={isFallback} />

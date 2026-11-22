@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+	<rect width="1200" height="800" fill="#F5F5F5" />
+	<rect x="56" y="56" width="1088" height="688" fill="none" stroke="#D4D4D4" stroke-width="1" />
+	<g stroke="#0A0A0A" stroke-width="1" opacity="0.2">
+		<line x1="200" y1="140" x2="200" y2="620" />
+		<line x1="400" y1="140" x2="400" y2="620" />
+		<line x1="600" y1="140" x2="600" y2="620" />
+		<line x1="800" y1="140" x2="800" y2="620" />
+		<line x1="1000" y1="140" x2="1000" y2="620" />
+		<line x1="160" y1="220" x2="1040" y2="220" />
+		<line x1="160" y1="380" x2="1040" y2="380" />
+		<line x1="160" y1="540" x2="1040" y2="540" />
+	</g>
+	<polyline points="240,510 430,360 610,410 780,240 940,290" fill="none" stroke="#0A0A0A" stroke-width="1.8" />
+	<g fill="#0A0A0A">
+		<circle cx="240" cy="510" r="7" />
+		<circle cx="430" cy="360" r="7" />
+		<circle cx="610" cy="410" r="7" />
+		<circle cx="780" cy="240" r="7" />
+		<circle cx="940" cy="290" r="7" />
+	</g>
+	<circle cx="780" cy="240" r="46" fill="none" stroke="#0A0A0A" stroke-width="1" stroke-dasharray="4 4" />
+	<text x="160" y="675" fill="#0A0A0A" font-family="monospace" font-size="15" letter-spacing="4">PROJECT 02 · HNSW VECTOR INDEX</text>
+</svg>
