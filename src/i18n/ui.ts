@@ -17,7 +17,6 @@ export const ui = {
 		home: {
 			metaTitle: 'Vinícius Hermes — Arquivo Editorial',
 			eyebrow: 'Edição Contínua · Portfólio & Arquivo',
-			viewAll: 'Ver tudo',
 			sectionLabels: {
 				featured: 'Destaques',
 				ultima: 'Última publicação',
