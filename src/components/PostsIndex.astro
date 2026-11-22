@@ -40,25 +40,32 @@ const categories = Array.from(new Set(posts.map((p) => p.entry.data.category)));
 		}
 
 		<div class="editorial-stack">
-			<div class="editorial-grid editorial-grid--horizontal" data-filter-grid="posts">
-				{
-					posts.map(({ entry, slug }) => (
-						<EditorialCard
-							filterValue={entry.data.category}
-							card={{
-								href: getItemUrl(locale, 'posts', slug),
-								image: entry.data.cover,
-								imageAlt: entry.data.coverAlt,
-								kicker: entry.data.category,
-								metaRight: formatEditorialDate(entry.data.date, locale),
-								title: entry.data.title,
-								subtitle: entry.data.excerpt,
-								mediaVariant: 'horizontal',
-							}}
-						/>
-					))
-				}
-			</div>
+			{
+				posts.length === 0 ? (
+					<div class="empty-state">
+						<span class="empty-state__eyebrow">{t.posts.emptyEyebrow}</span>
+						<p class="empty-state__text">{t.posts.empty}</p>
+					</div>
+				) : (
+					<div class="editorial-grid editorial-grid--horizontal" data-filter-grid="posts">
+						{posts.map(({ entry, slug }) => (
+							<EditorialCard
+								filterValue={entry.data.category}
+								card={{
+									href: getItemUrl(locale, 'posts', slug),
+									image: entry.data.cover,
+									imageAlt: entry.data.coverAlt,
+									kicker: entry.data.category,
+									metaRight: formatEditorialDate(entry.data.date, locale),
+									title: entry.data.title,
+									subtitle: entry.data.excerpt,
+									mediaVariant: 'horizontal',
+								}}
+							/>
+						))}
+					</div>
+				)
+			}
 		</div>
 	</div>
 </BaseLayout>

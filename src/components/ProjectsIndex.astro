@@ -49,26 +49,33 @@ const categories = Array.from(new Set(projects.map((p) => p.entry.data.category)
 		}
 
 		<div class="editorial-stack">
-			<div class="editorial-grid editorial-grid--horizontal" data-filter-grid="projects">
-				{
-					projects.map(({ entry, slug }) => (
-						<EditorialCard
-							filterValue={entry.data.category}
-							card={{
-								href: getItemUrl(locale, 'projects', slug),
-								image: entry.data.cover,
-								imageAlt: entry.data.coverAlt,
-								kicker: entry.data.category,
-								metaRight: String(entry.data.year),
-								title: entry.data.title,
-								subtitle: entry.data.excerpt,
-								tags: entry.data.stack,
-								mediaVariant: 'horizontal',
-							}}
-						/>
-					))
-				}
-			</div>
+			{
+				projects.length === 0 ? (
+					<div class="empty-state">
+						<span class="empty-state__eyebrow">{t.projects.emptyEyebrow}</span>
+						<p class="empty-state__text">{t.projects.empty}</p>
+					</div>
+				) : (
+					<div class="editorial-grid editorial-grid--horizontal" data-filter-grid="projects">
+						{projects.map(({ entry, slug }) => (
+							<EditorialCard
+								filterValue={entry.data.category}
+								card={{
+									href: getItemUrl(locale, 'projects', slug),
+									image: entry.data.cover,
+									imageAlt: entry.data.coverAlt,
+									kicker: entry.data.category,
+									metaRight: String(entry.data.year),
+									title: entry.data.title,
+									subtitle: entry.data.excerpt,
+									tags: entry.data.stack,
+									mediaVariant: 'horizontal',
+								}}
+							/>
+						))}
+					</div>
+				)
+			}
 		</div>
 	</div>
 </BaseLayout>

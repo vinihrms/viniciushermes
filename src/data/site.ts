@@ -1,9 +1,9 @@
 export const siteConfig = {
 	name: 'Vinícius Hermes',
-	email: 'contato@viniciushermes.dev',
+	email: 'vinicius.hermes@unioeste.br',
 	links: {
-		github: 'https://github.com/viniciushermes',
-		linkedin: 'https://linkedin.com/in/viniciushermes',
-		email: 'mailto:contato@viniciushermes.dev',
+		github: 'https://github.com/vinihrms',
+		linkedin: 'https://www.linkedin.com/in/vinicius-hermes-795227260/',
+		email: 'mailto:vinicius.hermes@unioeste.br',
 	},
 } as const;

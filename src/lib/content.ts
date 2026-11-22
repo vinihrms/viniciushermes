@@ -33,6 +33,7 @@ export interface EditorialCardData {
 	subtitle?: string;
 	tags?: string[];
 	mediaVariant: 'horizontal' | 'vertical' | 'book' | 'hero';
+	monochrome?: boolean;
 }
 
 export interface ResolvedHomeSection {
@@ -90,7 +91,9 @@ export async function getLocalizedBooks(locale: Locale): Promise<LocalizedEntry<
 		if (a.entry.data.status !== b.entry.data.status) {
 			return a.entry.data.status === 'lendo' ? -1 : 1;
 		}
-		return b.entry.data.yearRead - a.entry.data.yearRead;
+		const timeA = a.entry.data.completedDate?.getTime() ?? new Date(a.entry.data.yearRead, 11, 31).getTime();
+		const timeB = b.entry.data.completedDate?.getTime() ?? new Date(b.entry.data.yearRead, 11, 31).getTime();
+		return timeB - timeA;
 	});
 }
 
@@ -152,11 +155,14 @@ export async function resolveHomeSections(locale: Locale): Promise<ResolvedHomeS
 					href: getItemUrl(locale, 'books', ref.slug),
 					image: entry.data.cover,
 					imageAlt: entry.data.coverAlt,
-					kicker: `${t.collectionBadges.books} · ${statusLabel}`,
+					kicker: entry.data.favorite
+						? `${t.collectionBadges.books} · ${t.books.favoriteBadge}`
+						: `${t.collectionBadges.books} · ${statusLabel}`,
 					metaRight: String(entry.data.yearRead),
 					title: entry.data.title,
 					subtitle: entry.data.author,
 					mediaVariant: section.layout === 'vertical-3' ? 'book' : 'horizontal',
+					monochrome: true,
 				});
 			} else if (ref.collection === 'projects') {
 				const entry = projectMap.get(ref.slug);

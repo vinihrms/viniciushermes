@@ -67,21 +67,31 @@ for (const item of enriched) {
 			<p class="page-header__lead">{t.gallery.lead}</p>
 		</header>
 
-		<div class="filter-bar" role="group" aria-label={t.gallery.title} data-gallery-filter>
-			<button type="button" class="filter-btn" aria-pressed="true" data-filter="all">
-				{t.gallery.allFilter}
-			</button>
-			<button type="button" class="filter-btn" aria-pressed="false" data-filter="horizontal">
-				{t.gallery.horizontalFilter}
-			</button>
-			<button type="button" class="filter-btn" aria-pressed="false" data-filter="vertical">
-				{t.gallery.verticalFilter}
-			</button>
-		</div>
+		{
+			bands.length > 0 && (
+				<div class="filter-bar" role="group" aria-label={t.gallery.title} data-gallery-filter>
+					<button type="button" class="filter-btn" aria-pressed="true" data-filter="all">
+						{t.gallery.allFilter}
+					</button>
+					<button type="button" class="filter-btn" aria-pressed="false" data-filter="horizontal">
+						{t.gallery.horizontalFilter}
+					</button>
+					<button type="button" class="filter-btn" aria-pressed="false" data-filter="vertical">
+						{t.gallery.verticalFilter}
+					</button>
+				</div>
+			)
+		}
 
 		<div class="editorial-stack gallery-bands" data-gallery-bands>
 			{
-				bands.map((band) => (
+				bands.length === 0 ? (
+					<div class="empty-state">
+						<span class="empty-state__eyebrow">{t.gallery.emptyEyebrow}</span>
+						<p class="empty-state__text">{t.gallery.empty}</p>
+					</div>
+				) : (
+					bands.map((band) => (
 					<div
 						class:list={[
 							'editorial-grid',
@@ -144,6 +154,7 @@ for (const item of enriched) {
 						))}
 					</div>
 				))
+				)
 			}
 		</div>
 	</div>

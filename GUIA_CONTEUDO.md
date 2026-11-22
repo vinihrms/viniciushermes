@@ -2,7 +2,9 @@
 
 Este guia explica passo a passo como adicionar novas **postagens**, **livros/resenhas**, **projetos**, **fotografias da galeria** e como editar exatamente o que aparece na **página inicial (`/`)**.
 
-> **Nota sobre imagens**: suas imagens são exibidas exatamente como você as editar (sem filtros CSS forçados). Formatos suportados: `.jpg`, `.jpeg`, `.png`, `.webp`, `.avif` e `.svg`.
+> **Modelos prontos no repositório**: a pasta [`modelos/`](./modelos) contém arquivos prontos para copiar e colar (`post.exemplo.md`, `projeto.exemplo.md`, `livro.exemplo.md` e `galeria.exemplo.json`).
+>
+> **Nota sobre imagens**: fotos de postagens, projetos e galeria são exibidas exatamente como você as editar; capas de livros recebem automaticamente o filtro editorial preto e branco. Formatos suportados: `.jpg`, `.jpeg`, `.png`, `.webp`, `.avif` e `.svg`.
 
 ---
 

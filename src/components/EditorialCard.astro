@@ -24,7 +24,13 @@ const sizes =
 
 <article class="editorial-card" data-filter-item={filterValue}>
 	<a href={card.href} class="editorial-card__link">
-		<div class:list={['editorial-card__media', `editorial-card__media--${card.mediaVariant}`]}>
+		<div
+			class:list={[
+				'editorial-card__media',
+				`editorial-card__media--${card.mediaVariant}`,
+				{ 'editorial-card__media--bw': card.monochrome },
+			]}
+		>
 			<Image
 				src={card.image}
 				alt={card.imageAlt}

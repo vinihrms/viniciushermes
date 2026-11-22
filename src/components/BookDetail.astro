@@ -2,7 +2,7 @@
 import { render } from 'astro:content';
 import ArticleLayout from '../layouts/ArticleLayout.astro';
 import type { Locale } from '../i18n/ui';
-import { getSectionUrl, getTranslations } from '../i18n/utils';
+import { formatEditorialDate, getSectionUrl, getTranslations } from '../i18n/utils';
 import type { BookEntry } from '../lib/content';
 
 interface Props {
@@ -18,12 +18,25 @@ const { Content } = await render(entry);
 const statusLabel =
 	entry.data.status === 'lendo' ? t.books.statusReading : t.books.statusRead;
 
+const readValue = entry.data.completedDate
+	? formatEditorialDate(entry.data.completedDate, locale)
+	: String(entry.data.yearRead);
+
 const meta = [
 	{ label: t.books.author, value: entry.data.author },
-	{ label: t.books.yearRead, value: String(entry.data.yearRead) },
-	{ label: t.books.status, value: statusLabel },
+	{ label: t.books.yearRead, value: readValue },
+	...(entry.data.category ? [{ label: t.books.category, value: entry.data.category }] : []),
+	...(entry.data.pages ? [{ label: t.books.pages, value: String(entry.data.pages) }] : []),
 	...(entry.data.rating ? [{ label: t.books.rating, value: entry.data.rating }] : []),
 ];
+
+const eyebrowParts = [
+	t.books.eyebrow,
+	statusLabel,
+	entry.data.favorite ? t.books.favoriteBadge : '',
+].filter(Boolean);
+
+const extraQuotes = entry.data.quotes ?? [];
 ---
 
 <ArticleLayout
@@ -31,7 +44,7 @@ const meta = [
 	activeSection="books"
 	backHref={getSectionUrl(locale, 'books')}
 	backLabel={t.books.backToList}
-	eyebrow={`${t.books.eyebrow} · ${statusLabel}`}
+	eyebrow={eyebrowParts.join(' · ')}
 	title={entry.data.title}
 	lead={entry.data.excerpt}
 	cover={entry.data.cover}
@@ -42,4 +55,16 @@ const meta = [
 	isFallback={isFallback}
 >
 	<Content />
+	{
+		extraQuotes.length > 0 && (
+			<section class="book-quotes">
+				<h2>{t.books.quotesTitle}</h2>
+				{extraQuotes.map((q) => (
+					<blockquote>
+						<p>“{q}”</p>
+					</blockquote>
+				))}
+			</section>
+		)
+	}
 </ArticleLayout>

@@ -66,6 +66,12 @@
 
 .editorial-card__media--book {
 	aspect-ratio: 2 / 3;
+	border: 1px solid var(--color-border);
+}
+
+.editorial-card__media--book img,
+.editorial-card__media--bw img {
+	filter: grayscale(100%) contrast(1.06);
 }
 
 .editorial-card__media--hero {

@@ -1,0 +1,35 @@
+[
+	{
+		"id": "exemplo-horizontal-01",
+		"image": "../../assets/gallery/foto-paisagem-01.jpg",
+		"orientation": "horizontal",
+		"titlePt": "Título da Foto Horizontal",
+		"titleEn": "Horizontal Photo Title",
+		"locationPt": "Cidade, País",
+		"locationEn": "City, Country",
+		"date": "2026",
+		"camera": "35mm"
+	},
+	{
+		"id": "exemplo-horizontal-02",
+		"image": "../../assets/gallery/foto-paisagem-02.jpg",
+		"orientation": "horizontal",
+		"titlePt": "Segunda Foto Horizontal (fica ao lado da primeira)",
+		"titleEn": "Second Horizontal Photo (paired side-by-side)",
+		"locationPt": "Cidade, País",
+		"locationEn": "City, Country",
+		"date": "2026",
+		"camera": "50mm"
+	},
+	{
+		"id": "exemplo-vertical-01",
+		"image": "../../assets/gallery/foto-retrato-01.jpg",
+		"orientation": "vertical",
+		"titlePt": "Foto Vertical I (grupos consecutivos formam 3 colunas)",
+		"titleEn": "Vertical Photo I (consecutive vertical frames form 3 columns)",
+		"locationPt": "Cidade, País",
+		"locationEn": "City, Country",
+		"date": "2026",
+		"camera": "50mm"
+	}
+]

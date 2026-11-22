@@ -5,9 +5,6 @@ import { siteConfig } from '../data/site';
 import type { Locale } from '../i18n/ui';
 import { getTranslations } from '../i18n/utils';
 
-import heroPlate from '../assets/about/maison-hero.svg';
-import diptychLeft from '../assets/about/maison-study.svg';
-import diptychRight from '../assets/about/maison-archive.svg';
 
 interface Props {
 	locale: Locale;
@@ -33,12 +30,8 @@ const about = t.about;
 			</header>
 
 			<figure class="maison-plate">
-				<Image
-					src={heroPlate}
-					alt={about.title}
-					widths={[640, 1024, 1440]}
-					sizes="100vw"
-				/>
+										<!-- TODO: IMAGEM -->
+
 			</figure>
 
 			<section class="maison-chapter">
@@ -54,22 +47,14 @@ const about = t.about;
 			<div class="editorial-grid editorial-grid--horizontal maison-diptych">
 				<figure class="maison-frame">
 					<div class="editorial-card__media editorial-card__media--horizontal">
-						<Image
-							src={diptychLeft}
-							alt={about.chapters[0].heading}
-							widths={[480, 760, 1080]}
-							sizes="(max-width: 639px) 100vw, 50vw"
-						/>
+												<!-- TODO: IMAGEM -->
+
 					</div>
 				</figure>
 				<figure class="maison-frame">
 					<div class="editorial-card__media editorial-card__media--horizontal">
-						<Image
-							src={diptychRight}
-							alt={about.chapters[1].heading}
-							widths={[480, 760, 1080]}
-							sizes="(max-width: 639px) 100vw, 50vw"
-						/>
+						<!-- TODO: IMAGEM -->
+
 					</div>
 				</figure>
 			</div>
@@ -84,24 +69,6 @@ const about = t.about;
 				</div>
 			</section>
 
-			<section class="maison-timeline">
-				<div class="section-bar">
-					<h2 class="section-bar__title">{about.timelineTitle}</h2>
-				</div>
-				<ol class="timeline-list">
-					{
-						about.timeline.map((item) => (
-							<li class="timeline-item">
-								<span class="timeline-item__period">{item.period}</span>
-								<div class="timeline-item__content">
-									<h3 class="timeline-item__title">{item.title}</h3>
-									<p class="timeline-item__detail">{item.detail}</p>
-								</div>
-							</li>
-						))
-					}
-				</ol>
-			</section>
 
 			<section class="maison-colophon">
 				<div class="maison-colophon__col">

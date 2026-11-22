@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
-	<rect width="900" height="1200" fill="#121212" />
-	<rect x="90" y="90" width="720" height="1020" fill="none" stroke="#3A3A3A" stroke-width="1.2" />
-	<rect x="240" y="220" width="420" height="760" fill="#F2F2F2" />
-	<rect x="420" y="220" width="240" height="760" fill="#1F1F1F" />
-	<text x="450" y="1148" text-anchor="middle" fill="#8A8A8A" font-family="monospace" font-size="15" letter-spacing="5">FRAME V01 · MONOLITH</text>
-</svg>

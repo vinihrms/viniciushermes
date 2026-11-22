@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
-	<rect width="1200" height="800" fill="#ECECEC" />
-	<rect x="0" y="0" width="1200" height="420" fill="#D8D8D8" />
-	<rect x="180" y="180" width="840" height="440" fill="#111111" />
-	<rect x="260" y="240" width="220" height="320" fill="#F5F5F5" />
-	<rect x="720" y="240" width="220" height="320" fill="#F5F5F5" />
-	<text x="72" y="736" fill="#525252" font-family="monospace" font-size="15" letter-spacing="5">FRAME H02 · PAVILION FACADE</text>
-</svg>

@@ -34,45 +34,49 @@ export interface HomeSectionConfig {
 
 export const homeSections: HomeSectionConfig[] = [
 	{
-		id: 'destaques',
-		layout: 'horizontal-2',
-		labelKey: 'featured',
-		moreSection: 'projects',
-		items: [
-			{ collection: 'projects', slug: 'compilador-minilang' },
-			{ collection: 'posts', slug: 'arquitetura-e-silencio' },
-		],
-	},
-	{
-		id: 'leituras',
+		id: 'leituras-favoritas',
 		layout: 'vertical-3',
 		labelKey: 'readings',
 		moreSection: 'books',
 		items: [
 			{ collection: 'books', slug: 'o-estrangeiro' },
-			{ collection: 'books', slug: 'sicp' },
-			{ collection: 'books', slug: 'cidades-invisiveis' },
+			{ collection: 'books', slug: 'o-deserto-dos-tartaros' },
+			{ collection: 'books', slug: 'a-hora-da-estrela' },
 		],
 	},
 	{
-		id: 'engenharia-e-notas',
-		layout: 'horizontal-2',
-		labelKey: 'notes',
-		moreSection: 'posts',
-		items: [
-			{ collection: 'projects', slug: 'motor-busca-vetorial' },
-			{ collection: 'posts', slug: 'estruturas-de-dados-cache' },
-		],
-	},
-	{
-		id: 'galeria-selecao',
+		id: 'leituras-arquivo',
 		layout: 'vertical-3',
-		labelKey: 'gallery',
-		moreSection: 'gallery',
 		items: [
-			{ collection: 'gallery', slug: 'retrato-arquitetura-01' },
-			{ collection: 'gallery', slug: 'escadaria-concreto' },
-			{ collection: 'gallery', slug: 'sombra-biblioteca' },
+			{ collection: 'books', slug: 'a-invencao-de-morel' },
+			{ collection: 'books', slug: 'a-morte-de-ivan-ilitch' },
+			{ collection: 'books', slug: 'a-metamorfose' },
 		],
 	},
+
+	/*
+	 * MODELOS DE FAIXAS PARA QUANDO PUBLICAR POSTAGENS, PROJETOS E GALERIA:
+	 *
+	 * {
+	 *   id: 'destaques',
+	 *   layout: 'horizontal-2',
+	 *   labelKey: 'featured',
+	 *   moreSection: 'projects',
+	 *   items: [
+	 *     { collection: 'projects', slug: 'slug-do-projeto' },
+	 *     { collection: 'posts', slug: 'slug-da-postagem' },
+	 *   ],
+	 * },
+	 * {
+	 *   id: 'galeria-selecao',
+	 *   layout: 'vertical-3',
+	 *   labelKey: 'gallery',
+	 *   moreSection: 'gallery',
+	 *   items: [
+	 *     { collection: 'gallery', slug: 'id-foto-01' },
+	 *     { collection: 'gallery', slug: 'id-foto-02' },
+	 *     { collection: 'gallery', slug: 'id-foto-03' },
+	 *   ],
+	 * },
+	 */
 ];
