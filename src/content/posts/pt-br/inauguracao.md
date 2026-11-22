@@ -14,7 +14,7 @@ Sejam bem-vindos(as), oficialmente, ao arquivo do Vinícius.
 
 ## Sem muitas delongas...
 
-Se você está vendo esse artigo, é porque minha ideia deu certo kkkkk. Declado oficialemtne inaugurado meu arquivo pessoal. Em breve haverá publicação de conteúdos mais legais que um 'Sejam bem-vindos' nesse local.
+Se você está vendo esse artigo, é porque minha ideia deu certo kkkkk. Declaro oficialmente inaugurado meu arquivo pessoal. Em breve haverá publicação de conteúdos mais legais que um 'Sejam bem-vindos' nesse local.
 
 Por hora, importei minha biblioteca de livros do Notion, para ter algo a exibir. Mas só também.
 
