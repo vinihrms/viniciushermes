@@ -3,7 +3,7 @@ title: "Que legal, agora eu tenho um arquivo!!"
 date: 2026-11-21
 category: "Inauguração"
 excerpt: "O início de um registro"
-cover: "../../../assets/posts/inauguracao/inauguracao.jpeg"
+cover: "../../../assets/posts/inauguracao/inauguracao1.jpeg"
 coverAlt: "no cover"
 orientation: "horizontal"
 tags: ["bem-vindos"]

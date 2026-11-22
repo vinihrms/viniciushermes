@@ -6,7 +6,7 @@ completedDate: 2024-12-27
 status: "lido"
 category: "Novella"
 pages: 88
-favorite: true
+favorite: false
 rating: "★★★★★"
 excerpt: "Novella · 88 pages · ★★★★★"
 cover: "../../../assets/books/a-metamorfose.jpg"

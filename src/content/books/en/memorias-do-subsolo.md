@@ -6,7 +6,7 @@ completedDate: 2025-01-11
 status: "lido"
 category: "Novel"
 pages: 122
-favorite: false
+favorite: true
 rating: "★★★★★"
 excerpt: "Novel · 122 pages · ★★★★★"
 cover: "../../../assets/books/memorias-do-subsolo.jpg"

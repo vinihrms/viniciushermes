@@ -6,7 +6,7 @@ completedDate: 2025-01-06
 status: "lido"
 category: "Novella"
 pages: 104
-favorite: true
+favorite: false
 rating: "★★★★★"
 excerpt: "Novella · 104 pages · ★★★★★"
 cover: "../../../assets/books/a-morte-de-ivan-ilitch.jpg"

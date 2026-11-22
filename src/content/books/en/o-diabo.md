@@ -6,7 +6,7 @@ completedDate: 2026-03-22
 status: "lido"
 category: "Novel"
 pages: 53
-favorite: false
+favorite: true
 rating: "★★★★★"
 excerpt: "Novel · 53 pages · ★★★★★"
 cover: "../../../assets/books/o-diabo.jpg"

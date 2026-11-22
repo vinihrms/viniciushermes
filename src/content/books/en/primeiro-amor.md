@@ -6,7 +6,7 @@ completedDate: 2026-10-23
 status: "lido"
 category: "Novel"
 pages: 86
-favorite: false
+favorite: true
 rating: "★★★★★"
 excerpt: "Novel · 86 pages · ★★★★★"
 cover: "../../../assets/books/primeiro-amor.jpg"

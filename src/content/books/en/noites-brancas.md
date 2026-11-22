@@ -6,7 +6,7 @@ completedDate: 2025-02-18
 status: "lido"
 category: "Fiction"
 pages: 61
-favorite: false
+favorite: true
 rating: "★★★★"
 excerpt: "Fiction · 61 pages · ★★★★"
 cover: "../../../assets/books/noites-brancas.jpg"

@@ -6,7 +6,7 @@ completedDate: 2026-08-17
 status: "lido"
 category: "Novel"
 pages: 112
-favorite: true
+favorite: false
 excerpt: "Novel · 112 pages"
 cover: "../../../assets/books/a-invencao-de-morel.jpg"
 coverAlt: "Book cover of The Invention of Morel by Adolfo Bioy Casares"

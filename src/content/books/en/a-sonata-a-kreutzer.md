@@ -6,7 +6,7 @@ completedDate: 2026-11-07
 status: "lido"
 category: "Novella"
 pages: 91
-favorite: false
+favorite: true
 rating: "★★★★★"
 excerpt: "Novella · 91 pages · ★★★★★"
 cover: "../../../assets/books/a-sonata-a-kreutzer.jpg"

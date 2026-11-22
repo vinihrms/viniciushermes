@@ -12,8 +12,8 @@ excerpt: "Novella · 89 pages · ★★★★★"
 cover: "../../../assets/books/o-pequeno-principe.jpg"
 coverAlt: "Book cover of The Little Prince by Antoine de Saint-Exupéry"
 quotes:
-  - "É preciso suportar duas ou três lagartas para conhecer as borboletas"
-  - "O essencial é invisível para os olhos"
+  - "I must endure the presence of two or three caterpillars if I wish to become acquainted with the butterflies"
+  - "What is essential is invisible to the eye"
 ---
 
 *Archived from personal reading library. Full review and margin notes forthcoming.*

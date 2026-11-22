@@ -27,46 +27,36 @@ export interface HomeItemRef {
 export interface HomeSectionConfig {
 	id: string;
 	layout: HomeLayoutType;
-	labelKey?: 'featured' | 'readings' | 'projects' | 'gallery' | 'notes';
+	labelKey?:'ultima'| 'featured' | 'readings' | 'projects' | 'gallery' | 'notes';
 	moreSection?: SectionKey;
 	items: HomeItemRef[];
 }
 
 export const homeSections: HomeSectionConfig[] = [
+
+	{
+		id: 'ultima',
+		layout: 'hero',
+		labelKey: 'ultima',
+		moreSection: 'projects',
+		items: [
+		{ collection: 'posts', slug: 'inauguracao'},
+		],
+	},
+
 	{
 		id: 'leituras-favoritas',
 		layout: 'vertical-3',
 		labelKey: 'readings',
 		moreSection: 'books',
 		items: [
-			{ collection: 'books', slug: 'o-estrangeiro' },
-			{ collection: 'books', slug: 'o-deserto-dos-tartaros' },
-			{ collection: 'books', slug: 'a-hora-da-estrela' },
-		],
-	},
-	{
-		id: 'leituras-arquivo',
-		layout: 'vertical-3',
-		items: [
-			{ collection: 'books', slug: 'a-invencao-de-morel' },
-			{ collection: 'books', slug: 'a-morte-de-ivan-ilitch' },
-			{ collection: 'books', slug: 'a-metamorfose' },
+			{ collection: 'books', slug: 'padre-sergio' },
+			{ collection: 'books', slug: 'a-sonata-a-kreutzer' },
+			{ collection: 'books', slug: 'primeiro-amor' },
 		],
 	},
 
 	/*
-	 * MODELOS DE FAIXAS PARA QUANDO PUBLICAR POSTAGENS, PROJETOS E GALERIA:
-	 *
-	 * {
-	 *   id: 'destaques',
-	 *   layout: 'horizontal-2',
-	 *   labelKey: 'featured',
-	 *   moreSection: 'projects',
-	 *   items: [
-	 *     { collection: 'projects', slug: 'slug-do-projeto' },
-	 *     { collection: 'posts', slug: 'slug-da-postagem' },
-	 *   ],
-	 * },
 	 * {
 	 *   id: 'galeria-selecao',
 	 *   layout: 'vertical-3',
